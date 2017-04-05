@@ -1,5 +1,5 @@
+<title>Simple MVC</title>
 <script>
-
 
 function testclick(){
 //alert("test");
@@ -20,7 +20,7 @@ var stringVal = document.getElementById('inputValue').value;
 <h1> Sorting Assignment</h1><br>
 
 <form>
-	Input String : <input id="inputValue" type="text">
+	Input String : <input name="inputValue" id="inputValue" type="text" value="input">
 	<select name="sort-method" id="selection">
 		<option value="bubble">Bubble Sort</option>
 		<option value="quick">Quick Sort</option>

@@ -8,7 +8,17 @@ class viewData
 	public $default_var = "Default data";
 }
 
-class testModel
+abstract class parentTest
+{
+	// Abstract Factory Pattern
+	//create new abstract class to be inherit 
+	abstract protected function set_view_data();
+	abstract protected function bubble_sort($arr);
+	abstract protected function quick_sort($arr);
+
+}
+
+class testModel extends parentTest
 {
 	private $data = "";
 	private $link1_text = "";
@@ -22,13 +32,13 @@ class testModel
 		$this->view_data = new viewData();
 	}
 	
-	function set_view_data()
+	public function set_view_data()
 	{
 		//some data processing here... 
 		$this->view_data->some_data = $this->data;
 	}
 	
-	function bubble_sort($arr1) {
+	public function bubble_sort($arr1) {
 		$arr = str_split($arr1);
 		$n = count($arr);
 		do {
@@ -46,15 +56,15 @@ class testModel
 		}
 		while ($swapped);
 		//return $arr;
-		$this->view_data->link1_text = "Bubble Sort: ".implode($arr);
+		$this->view_data->link1_text = "Sorted: ".implode($arr);
 		
 	} // end of bubble_sort
 	
-	function quick_sort($arr1) {
+	public function quick_sort($arr1) {
 			$arr1 = str_split($arr1);
 			sort($arr1);
 			$s = implode($arr1);
-        $this->view_data->link1_text = "Quick Sort: ".$s;
+        $this->view_data->link1_text = "Sorted: ".$s;
 	} // end of quick sort
 };
 
